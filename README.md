@@ -29,3 +29,11 @@ Example:
 ```
 METRIC_TAGS: "['app:test','env:production']"
 ```
+
+### Testing
+
+```
+ docker build . -t datadogmetric
+ docker run  -e DATADOG_API_KEY=7e70EXAMPLEdd -e METRIC_NAME=com.parsleyhealth.cicd.test -e METRIC_VALUE=23 datadogmetric:latest
+
+```
