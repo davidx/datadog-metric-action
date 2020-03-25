@@ -1,26 +1,31 @@
-# 🐶 DataDog Events - GitHub Action
+# 🐶 DataDog Metrics - GitHub Action
 
-A GitHub Action that triggers DataDog Events.
+A GitHub Action that triggers DataDog Metrics.
 
 ## Usage
 
 ```
-- name: DataDog Event
-  uses: jordan-simonovski/datadog-event-action@1.0.3
+- name: DataDog Metric
+  uses: parsleyhealth/datadog-metric-action@1.0.1
   env:
-    DATADOG_API_KEY: ${{ secrets.DD_API_KEY }}
-    EVENT_TITLE: Build Succeeded
-    EVENT_TEXT: We did it! 🎉
-    EVENT_PRIORITY: (Can be one of normal or low. Default: normal)
-    EVENT_TAGS: (optional)
-    EVENT_ALERT_TYPE: (Can be one of error, warning, info, or success. Default: info)
+    DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY_STAGING }}
+    METRIC_NAME: "com.parsleyhealth.cicd.test"
+    METRIC_VALUE: 34
+    METRIC_TAGS: "[ \"environment:staging\",
+                  \"componentname:data-api\",
+                  \"reponame:cicd\",
+                  \"branchname:feature/test\",
+                  \"gitsha:liwefjowerigjowi4jgot4\",
+                  \"gitauthor:davidx@gmail.com\"
+               ]"
+
 ```
 
-### Event Tags
+### Metric Tags
 
-Event Tags should be an array of different key/value pairs.
+Metric Tags should be an array of different key/value pairs.
 
 Example:
 ```
-EVENT_TAGS: "['app:test','env:production']"
+METRIC_TAGS: "['app:test','env:production']"
 ```
